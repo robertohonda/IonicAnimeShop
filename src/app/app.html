@@ -11,8 +11,8 @@
         {{p.title}}
       </button>
       <ion-footer>
-        <button ion-button  menuClose color="secondary" full *ngIf="!userProv.currentUser.isLogged" (click)="openPage(loginPage)">Login</button>
-        <button ion-button menuClose color="secondary" full *ngIf="!userProv.currentUser.isLogged" (click)="openPage(registerPage)">Register</button>
+        <button ion-button  menuClose full *ngIf="!userProv.currentUser.isLogged" (click)="openPage(loginPage)">Login</button>
+        <button ion-button menuClose full *ngIf="!userProv.currentUser.isLogged" (click)="openPage(registerPage)">Register</button>
         <button ion-button color="danger" full *ngIf="userProv.currentUser.isLogged" (click)="menuPages.logout()">Logout</button>
       </ion-footer>
     </ion-list>

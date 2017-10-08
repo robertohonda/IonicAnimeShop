@@ -16,6 +16,9 @@ Take the name after `ionic2-starter-`, and that is the name of the template to b
 $ sudo npm install -g ionic cordova
 $ ionic start mySideMenu sidemenu
 $ npm install firebase angularfire2 --save
+$ ionic cordova plugin add cordova-plugin-camera
+$ npm install --save @ionic-native/camera
+$ npm install promise-polyfill --save-exact
 ```
 
 Then, to run it, cd into `mySideMenu` and run:
@@ -23,6 +26,9 @@ Then, to run it, cd into `mySideMenu` and run:
 ```bash
 $ ionic cordova platform add ios
 $ ionic cordova run ios
+
+$ ionic cordova platform add browser
+$ ionic cordova run browser
 ```
 
 Substitute ios for android if not on a Mac.
