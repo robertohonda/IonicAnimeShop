@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <h6 *ngIf='userProv.currentUser.isLogged'>Welcome {{userProv.currentUser.name}}!</h6>
+
+  <ion-card *ngFor="let product of products">
+      <img src="{{product.img}}"/>
+      <ion-card-content>
+        <ion-card-title>
+          {{product.name}}
+        </ion-card-title>
+
+        <h6> <b>Description: </b> {{product.description}} </h6>
+
+        <h6> <b>Category:</b> {{productProv.getCategoryValue(product.category)}} </h6>
+        <h6> <b>Genres:</b> {{productProv.getGenreValuesString(product.genres)}} </h6>
+        <h6> <b>Quantity:</b> {{product.quantity}} </h6>
+        <h6> <b>Price:</b> ${{product.price.toFixed(2)}} </h6>
+
+      </ion-card-content>
+  </ion-card>
+</ion-content>

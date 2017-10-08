@@ -1,0 +1,61 @@
+<!--
+  Generated template for the RegisterProductPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Register Product</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-card>
+        <button ion-button full (click)="getImageDevice()">Choose image</button>
+        <img src="{{product.img}}"/>
+    </ion-card>
+    
+    <ion-item>
+        <ion-label floating>Product Name</ion-label>
+        <ion-input type="text" [(ngModel)]="product.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Category</ion-label>
+        <ion-select [(ngModel)]="product.category">
+            <ion-option *ngFor="let key of productProv.getCategoryKeys()" value="{{key}}">{{productProv.Category[key]}}</ion-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Genres</ion-label>
+        <ion-select [(ngModel)]="product.genres" multiple="true">
+            <ion-option *ngFor="let key of productProv.getGenreKeys()" value="{{key}}">{{productProv.Genre[key]}}</ion-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Description</ion-label>
+      <ion-textarea rows="5" type="text" [(ngModel)]="product.description"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+        <ion-label floating>Quantity</ion-label>
+        <ion-input type="number" [(ngModel)]="product.quantity"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label floating>Price</ion-label>
+      <ion-input type="text" [(ngModel)]="product.price"></ion-input>
+    </ion-item>
+  </ion-list>
+  
+  <button ion-button (click)="teste()">teste</button>
+</ion-content>
