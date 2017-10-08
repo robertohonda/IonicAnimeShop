@@ -42,4 +42,10 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page);
   }
+
+  logout(){
+    this.menuPages.logout();
+    console.log(this.nav);
+    this.nav.setRoot(HomePage);
+  }
 }

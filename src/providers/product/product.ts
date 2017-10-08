@@ -48,13 +48,13 @@ export class ProductProvider{
   }
 
   getGenreValuesString(genres: Array<any>){
-    let values: Array<string> = [];
+    let output: string = '';
 
     genres.forEach(key =>{
-      values.push(this.Genre[key]);
+      output += this.Genre[key] + ', ';
     })
 
-    return values.toString().replace(',', ', ');
+    return output.slice(0, -2);
   }
 
   /*Função para registrar o produto no firebase*/

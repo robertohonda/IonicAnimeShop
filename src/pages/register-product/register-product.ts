@@ -26,7 +26,7 @@ export class RegisterProductPage {
   }
 
   
-  getImageDevice(){
+  getImage(){
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
@@ -45,13 +45,31 @@ export class RegisterProductPage {
     });
   }
 
-  teste(){
+  isValidProduct(product: Product){
+    if(product.img == null) return 'Invalid image!';
+    if(product.name == null) return 'Invalid product name!';
+    if(product.category == null) return 'Invalid category!';
+    if(product.genres == null) return 'Invalid genres!';
+    if(product.description == null) return 'Invalid description!';
+    if(product.quantity == null || product.quantity < 0) return 'Invalid quantity!';
+    if(product.price == null) return 'Invalid price!';
+    return '';
+  }
+
+  registerProduct(){
     this.product.price = parseFloat((''+this.product.price).replace(',', '.'));
     this.product.quantity = parseInt(''+this.product.quantity);
+
+    let error = this.isValidProduct(this.product);
+    if(error != ''){
+      this.alert.showAlert('Error', error);
+      return;
+    }
 
     this.productProv.register(this.product);
     console.log(this.product);
   }
+
 
 
 }

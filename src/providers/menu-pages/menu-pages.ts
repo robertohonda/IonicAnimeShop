@@ -5,7 +5,6 @@ import { ListPage } from '../../pages/list/list';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AlertProvider } from '../alert/alert';
-import { Events } from 'ionic-angular';
 
 @Injectable()
 export class MenuPagesProvider {
@@ -13,7 +12,6 @@ export class MenuPagesProvider {
 
   constructor(
     private afAuth: AngularFireAuth,
-    public events: Events,
     private alert: AlertProvider) {
     this.pages = [
       { title: 'Home', component: HomePage },
@@ -24,6 +22,9 @@ export class MenuPagesProvider {
   logout(){
     console.log("logout!!");
     this.afAuth.auth.signOut()
+    .then(data =>{
+      
+    })
     .catch(error => {
       this.alert.showAlert('Error!', error.message);
     });
